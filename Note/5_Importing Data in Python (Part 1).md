@@ -1,7 +1,7 @@
 # Importing Data in Python (Part 1)
 ## 1. Introduction and flat files
 
-**Importing entire text files vs. Importing text files line by line**
+### Importing entire text files vs. Importing text files line by line
 
 ```python
 # Open a file: file
@@ -30,7 +30,7 @@ with open('moby_dick.txt') as file:
 
 ```
 
-**What is Flat files**
+### What is Flat files
 
 > * Text files containing records
 > * That is, table data
@@ -38,7 +38,7 @@ with open('moby_dick.txt') as file:
 > * Column: feature or a ribute
 > * How do you import flat files - Two main packages: NumPy, pandas
 
-**Using NumPy to import flat files**
+### Using NumPy to import flat files
 
 > * **delimiter** changes the delimiter that loadtxt() is expecting, for example, you can use ',' and '\t' for comma-delimited and tab-delimited respectively; 
 > 
@@ -94,7 +94,7 @@ d = np.recfromcsv(file, delimiter=',', names=True)
 
 ```
 
-**Using pandas to import flat files as DataFrames**
+### Using pandas to import flat files as DataFrames
 
 > The pandas package is also great at dealing with many of the issues you will encounter when importing data as a data scientist, such as **comments** occurring in flat files, **empty lines and missing values**. Note that missing values are also commonly referred to as NA or NaN
 > 
@@ -119,11 +119,11 @@ print(df.head())
 
 ## 2. Importing data from other file types
 
-**Pickled files**
+### Pickled files
 > * File type native to Python
-* Motivation: many datatypes for which it isn’t obvious how to store them
-* Pickled files are serialized
-* Serialize = convert object to bytestream
+> * Motivation: many datatypes for which it isn’t obvious how to store them> 
+> * Pickled files are serialized
+> * Serialize = convert object to bytestream
 
 ```python
 # Import pickle package
@@ -139,7 +139,7 @@ print(d)
 # Print datatype of d
 print(type(d))
 ```
-**Importing sheets from Excel files**
+### Importing sheets from Excel files
 
 ```python
 # Import pandas
@@ -168,7 +168,7 @@ print(df2.head())
 
 ```
 
-**Importing SAS/Stata files using pandas**
+### Importing SAS/Stata files using pandas
 
 ```python
 # Import sas7bdat package
@@ -206,7 +206,7 @@ plt.ylabel('Number of coutries')
 plt.show()
 
 ```
-**Importing HDF5 files**
+### Importing HDF5 files
 
 ```python
 # Import packages
@@ -226,7 +226,7 @@ print(type(data))
 for key in data.keys():
     print(key)
 ```
-**Importing MATLAB files**
+### Importing MATLAB files
 
 ```python
 # Import package
@@ -241,7 +241,7 @@ print(type(mat))
 
 ## 3. Working with relational databases
 
-**Creating a database engine in Python**
+### Creating a database engine in Python
 
 ```python
 # Import necessary module
@@ -258,7 +258,7 @@ print(table_names)
 
 ```
 
-**Querying relational databases in Python**
+### Querying relational databases in Python
 
 ```python
 # Create engine: engine
@@ -278,7 +278,7 @@ print(df.head())
 
 ```
 
-**Querying relational databases directly with pandas**
+### Querying relational databases directly with pandas
 
 ```python
 # Import packages
@@ -296,7 +296,7 @@ print(df.head())
 
 ```
 
-**Advanced Querying: exploiting table relationships**
+### Advanced Querying: exploiting table relationships
 
 > INNER JOIN in Python 
 

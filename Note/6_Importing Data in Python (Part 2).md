@@ -1,7 +1,7 @@
 # Importing Data in Python (Part 2)
 
 ## 1. Importing data from the Internet
-**Importing flat files from the web**
+### Importing flat files from the web
 
 ```python
 # Import package
@@ -44,7 +44,7 @@ plt.ylabel('count')
 plt.show()
 ```
 
-**HTTP requests to import files from the web**
+###  HTTP requests to import files from the web
 
 ```python
 # Import packages
@@ -88,7 +88,7 @@ text = r.text
 print(text)
 ```
 
-**Scraping the web in Python**
+###  Scraping the web in Python
 
 >  how to use the BeautifulSoup package to parse, prettify and extract information from HTML. 
 
@@ -156,7 +156,7 @@ for link in a_tags:
 
 ## 2. Interacting with APIs to import data from the web
 
-**APIs and interacting with the world wide web**
+### APIs and interacting with the world wide web
 
 ```python
 # Import package
@@ -179,7 +179,7 @@ print(pizza_extract)
 
 ## 3. Diving deep into the Twitter API
 
-**The Twitter API and Authentication**
+### The Twitter API and Authentication
 
 > * The package tweepy is great at handling all the Twitter API OAuth Authentication details
 > 

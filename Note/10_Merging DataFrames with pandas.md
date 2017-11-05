@@ -1,6 +1,6 @@
 # Merging DataFrames with pandas
 
-## Preparing data
+## 1. Preparing data
 ### Reading multiple data files
 > #### Reading DataFrames from multiple files in a loop
 
@@ -200,7 +200,7 @@ print(pounds.head())
 ![27](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/27.png)
 
  
-## Concatenating data
+## 2. Concatenating data
 ### Appending & concatenating Series
 > #### Appending Series with nonunique Indices
 > the command combined = bronze.append(silver)
@@ -451,7 +451,7 @@ print(gdp.resample('10A').last())
 ```
 ![35](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/35.png)
 
-## Merging data
+## 3. Merging data
 ### Merging DataFrames
 > #### Merging on a specific column
 
@@ -560,12 +560,12 @@ print(tx_weather_ffill)
 ``` 
 ![42](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/42.png)
 
-## 綜合比較
+## 4. 綜合比較
 
 ![43](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/43.png)
 
 
-## Case Study - Summer Olympics
+## 5. Case Study - Summer Olympics
 ### Medals in the Summer Olympics
 > #### Loading Olympic edition DataFrame
 > > * prepare a DataFrame editions from a tab-separated values (TSV) file

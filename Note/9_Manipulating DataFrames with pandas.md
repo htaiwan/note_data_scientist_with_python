@@ -1,6 +1,6 @@
 # Manipulating DataFrames with pandas
 
-## Extracting and transforming data
+## 1. Extracting and transforming data
 ### Indexing DataFrames
 > #### Positional(iloc) and labeled(loc) indexing
 
@@ -213,7 +213,7 @@ print(election.head())
 
 ```
 
-## Advanced indexing
+## 2.Advanced indexing
 ### Index objects and labeled data
 
 > #### Changing index of a DataFrame
@@ -312,7 +312,7 @@ all_month2 = sales.loc[(slice(None), 2), :]
 
 ```
 
-## Rearranging and reshaping data
+## 3. Rearranging and reshaping data
 ### Pivoting DataFrames
 > #### Pivoting a single variable
 
@@ -471,7 +471,7 @@ print(signups_and_visitors_total)
 
 ![9](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/9.png)
 
-## Grouping data
+## 4. Grouping data
 ### Categoricals and groupby
 > #### Grouping by multiple columns
 
@@ -691,7 +691,7 @@ print(survived_mean_2)
 ![13](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/13.png)
 
 
-## Bringing it all together
+## 5. Bringing it all together
 ### Case Study - Summer Olympics
 > #### Grouping and aggregating
 > > Suppose you have loaded the data into a DataFrame medals. You now want to find the total number of medals awarded to the USA per edition. To do this, filter the 'USA' rows and use the groupby() function to put the 'Edition' column on the index:

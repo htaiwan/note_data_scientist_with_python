@@ -1,9 +1,9 @@
 # Cleaning Data in Python
 
-## Exploring your data
+## 1. Exploring your data
 
-**Diagnose data for cleaning**
-> ### Common data problems
+### Diagnose data for cleaning
+> #### Common data problems
 > 
 >  * Inconsistent column names(ex. country的拼法有英文拼法也有法文拼法..)
 >  * Missing data
@@ -14,7 +14,7 @@
 >  * Column types can signal unexpected data values
 > 
 >
-> ### Loading and viewing your data
+> #### Loading and viewing your data
 > 
 >  * .head() and .tail()
 >  * .shape and .columns attributes let you see the shape of the DataFrame and obtain a list of its columns
@@ -43,12 +43,12 @@ print(df.columns)
 print(df.info())
 ```
 
-**Exploratory data analysis**
-> ### Calculating summary statistics
+### Exploratory data analysis
+> #### Calculating summary statistics
 > 
 >  * .describe() method to calculate summary statistics of your data
 > 
-> ### Frequency counts for categorical data
+> #### Frequency counts for categorical data
 >   how can you diagnose data issues when you have categorical data? One way is by using the .value_counts() method, which returns the frequency counts for each unique value in a column!
 > 
 >  This method also has an optional parameter called dropna which is True by default. What this means is if you have missing data in a column, it will not give a frequency count of them. You want to set the dropna column to False so if there are missing values in a column, it will give you the frequency counts.
@@ -65,13 +65,13 @@ print(df['Site Fill'].value_counts(dropna=False))
 
 ```
 
-**Visual exploratory data analysis**
-> ### Visualizing single variables with histograms
+### Visual exploratory data analysis
+> #### Visualizing single variables with histograms
 >  * The .plot() method allows you to create a plot of each column of a DataFrame. 
 >  * The kind parameter allows you to specify the type of plot to use - kind='hist'
 >  * The keyword arguments logx=True or logy=True can be passed in to .plot() depending on which axis you want to rescale.
 > 
-> ### boxplots VS scatter plots
+> #### boxplots VS scatter plots
 >  Boxplots are great when you have a numeric column that you want to compare across different categories. When you want to visualize two numeric columns, scatter plots are ideal.
 
 ```python
@@ -107,15 +107,14 @@ plt.show()
 ```
 
 
-## Tidying data for analysis
-**Tidy data**
-
+## 2. Tidying data for analysis
+### Tidy data
 > For data to be tidy, it must have:
 >
 > * Each variable as a separate column.
 > * Each row as a separate observation.
 > 
-> ### Reshaping your data using melt
+> #### Reshaping your data using melt
 > 
 > pd.melt(). There are two parameters you should be aware of: id_vars and value_vars
 > 
@@ -130,7 +129,7 @@ airquality_melt = pd.melt(frame=df, id_vars=['Month', 'Day'], var_name='measurem
 
 ```
 
-**Pivoting data**
+### Pivoting data
 
 > Pivoting data is the opposite of melting it.
 > 
@@ -159,7 +158,7 @@ airquality_pivot = airquality_dup.pivot_table(index=['Month', 'Day'], columns='m
 
 ```
 
-**Beyond melt and pivot**
+### Beyond melt and pivot
 
 > * 1. you're going to tidy the 'm014' column, which represents males aged 0-14 years of age.
 > * 2. type_country (Cases_Guinea), spilt to type & country in two columns
@@ -197,9 +196,9 @@ print(ebola_melt.head())
 
 ```
 
-## Combining data for analysis
+## 3. Combining data for analysis
 
-**Concatenating data**
+### Concatenating data
 
 > pd.concat() function, but this time with the keyword argument axis=1. The default, axis=0, is for a row-wise concatenation.
  
@@ -211,7 +210,7 @@ row_concat = pd.concat([uber1,uber2,uber3])
 ebola_tidy = pd.concat([ebola_melt, status_country], axis = 1)
 ```
 
-**Finding and concatenating data**
+### Finding and concatenating data
 > glob module has a function called glob that takes a pattern and returns a list of the files in the working directory that match that pattern.
 
 ```python
@@ -242,7 +241,7 @@ uber = pd.concat(frames)
 
 ```
 
-**Merge data**
+###  Merge data
 > Merging data allows you to combine disparate datasets into a single dataset to do more complex analysis.
 >
 > * Two DataFrames have been pre-loaded: site and visited.  Your task is to perform a 1-to-1 merge of these two DataFrames using the 'name' column of site and the 'site' column of visited.
@@ -253,10 +252,10 @@ o2o = pd.merge(left=site, right=visited, left_on='name', right_on='site')
 
 ```
 
-## Cleaning data for analysis
+## 4. Cleaning data for analysis
 
-**Data types**
-> ### Converting data types
+### Data types
+> #### Converting data types
 > ensuring all categorical variables in a DataFrame are of type category reduces memory usage.
 > 
 > .astype()
@@ -286,14 +285,14 @@ tips['tip'] = pd.to_numeric(tips['tip'], errors='coerce')
 
 ```
 
-**Using regular expressions to clean strings**
-> ### String parsing with regular expressions
+### Using regular expressions to clean strings
+> #### String parsing with regular expressions
 > Compile a pattern that matches a phone number of the format xxx-xxx-xxxx
 > 
-> ### Extracting numerical values from strings
+> #### Extracting numerical values from strings
 > Say you have the following string: 'the recipe calls for 6 strawberries and 2 bananas'. It would be useful to extract the 6 and the 2 from this string to be saved for later use when comparing strawberry to banana ratios.
 > 
-> ### Pattern matching
+> #### Pattern matching
 
 ```python
 # Import the regular expression module
@@ -336,11 +335,11 @@ print(pattern3)
 
 ```
 
-**Using functions to clean data**
-> ### Custom functions to clean data
+### Using functions to clean data
+> #### Custom functions to clean data
 > .apply() method to apply a function across entire rows or columns of DataFrames. 
 > 
-> ### Lambda functions
+> #### Lambda functions
 >  Instead of using the def syntax that you used in the previous exercise, lambda functions let you make simple, one-line functions.
 
 ```python
@@ -373,11 +372,11 @@ tips['total_dollar_re'] = tips['total_dollar'].apply(lambda x: re.findall('\d+\.
 
 ```
 
-**Duplicate and missing data**
-> ### Dropping duplicate data
+### Duplicate and missing data
+> #### Dropping duplicate data
 > .drop_duplicates()
 > 
-> ### Filling missing data 
+> #### Filling missing data 
 > .fillna()
 
 ```python
@@ -401,7 +400,7 @@ airquality['Ozone'] = airquality['Ozone'].fillna(oz_mean)
 
 ```
 
-**Testing with asserts**
+### Testing with asserts
 >  chain two .all() methods (that is, .all().all()). The first .all() method will return a True or False for each column, while the second .all() method will return a single True or False.
 
 ```python
@@ -413,14 +412,14 @@ assert (ebola >= 0).all().all()
 
 ```
 
-## Case study
+## 5. Case study
 
-**Putting it all together**
-> ### Exploratory analysis
+### Putting it all together
+> #### Exploratory analysis
 >  * Whenever you obtain a new dataset, your first task should always be to do some exploratory analysis to get a better understanding of the data and diagnose it for any potential issues.
 >  * use pandas methods such as .head(), .info(), and .describe(), and DataFrame attributes like .columns and .shape to explore it 
 > 
-> ### Visualizing your data
+> #### Visualizing your data
 >  visually check the data for insights as well as errors
 
 ```python
@@ -443,7 +442,7 @@ plt.show()
 
 ```
 
-> ### Thinking about the question at hand
+> #### Thinking about the question at hand
 > Before continuing, however, it's important to make sure that the following assumptions about the data are true:
 >
 > * 'Life expectancy' is the first column (index 0) of the DataFrame.
@@ -473,7 +472,7 @@ assert g1800s['Life expectancy'].value_counts()[0] == 1
 
 ```
 
-> ### Assembling your data
+> #### Assembling your data
 > three DataFrames have been pre-loaded: g1800s, g1900s, and g2000s. These contain the Gapminder life expectancy data for, respectively, the 19th century, the 20th century, and the 21st century. Your task in this exercise is to concatenate them into a single DataFrame called gapminder
 
 ```python
@@ -487,8 +486,8 @@ print(gapminder.shape)
 print(gapminder.head())
 ```
 
-**Initial impressions of the data**
-> ### Reshaping your data
+### Initial impressions of the data
+> #### Reshaping your data
 > gapminder DataFrame has a separate column for each year. What you want instead is a single column that contains the year, and a single column that represents > the average life expectancy for each year and country
 
 ```python
@@ -503,7 +502,7 @@ print(gapminder_melt.head())
 ```
 
  
-> ### Checking the data types
+> #### Checking the data types
 > Now that your data is in the proper shape, you need to ensure that the columns are of the proper data type. That is, you need to ensure that country is of type object, year is of type int64, and life_expectancy is of type float64
 
 ```python
@@ -521,7 +520,7 @@ assert gapminder.life_expectancy.dtypes == np.float64
 
 ```
 
-> ### Looking at country spellings
+> #### Looking at country spellings
 > Having tidied your DataFrame and checked the data types, your next task in the data cleaning process is to look at the 'country' column to see if there are any special or invalid characters you may need to deal with.
 >
 > It is reasonable to assume that country names will contain:

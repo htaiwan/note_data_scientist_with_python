@@ -1,6 +1,6 @@
 # Supervised Learning with scikit-learn
 
-## Classification
+## 1. Classification
 ### Supervised learning
 > * ex. Using labeled financial data to predict whether the value of a stock will go up or go down next week.
 > * Exactly! In this example, there are two discrete, qualitative outcomes: the stock market going up, and the stock market going down. This can be represented using a binary variable, and is an application perfectly suited for classification.
@@ -121,7 +121,7 @@ plt.show()
  
 ![54](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/54.png)
 
-## Regression
+## 2. Regression
 ### Introduction to regression
 > * ex. A bike share company using time and weather data to predict the number of bikes being rented at any given hour.
 > * The target variable here - the number of bike rentals at any given hour - is quantitative, so this is best framed as a regression problem
@@ -311,7 +311,7 @@ display_plot(ridge_scores, ridge_scores_std)
 ![62](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/62.png)
 
 
-## Fine-tuning your model
+## 3. Fine-tuning your model
 ### How good is your model?
 > #### Metrics for classification
 > > * deeply into evaluating the performance of binary classifiers by computing a confusion matrix and generating a classification report.
@@ -562,7 +562,7 @@ print("Tuned ElasticNet R squared: {}".format(r2))
 print("Tuned ElasticNet MSE: {}".format(mse))
 ```
 
-## Preprocessing and pipelines
+## 4. Preprocessing and pipelines
 ### Preprocessing data
 > #### Exploring categorical features
 > > * Exploratory data analysis should always be the precursor to model building
@@ -706,7 +706,7 @@ print('Accuracy without Scaling: {}'.format(knn_unscaled.score(X_test, y_test)))
 ```
 ![73](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/73.png)
 
-## Bringing it all together
+## 5. Bringing it all together
 > ### Bringing it all together I: Pipeline for classification
 
 ```python

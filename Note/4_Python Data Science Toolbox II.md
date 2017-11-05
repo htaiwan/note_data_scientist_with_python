@@ -1,14 +1,14 @@
 # Python Data Science Toolbox (Part 2)
 ## 1. Using iterators in PythonLand
 
-**Iterators vs. iterables**
+### Iterators vs. iterables
 
-* Iterable
-	* lists, strings, dictionaries, file connections
-	* An object with an associated iter() method
-	* Applying iter() to an iterable creates an iterator
-* Iterator
-	* Produces next value with next() 
+> > * Iterable
+> > 	* lists, strings, dictionaries, file connections
+> > 	* An object with an associated iter() method
+> > 	* Applying iter() to an iterable creates an iterator
+> > * Iterator
+> > 	* Produces next value with next() 
 
 ```python
 ## Iterating over iterables (1)
@@ -73,9 +73,9 @@ print(values_sum)
 
 ```
 
-**Enumerate vs. Zip**
+### Enumerate vs. Zip
 
-enumerate() returns an enumerate object that produces a sequence of tuples, and each of the tuples is an index-value pair.
+> enumerate() returns an enumerate object that produces a sequence of tuples, and each of the tuples is an index-value pair.
 
 ```python
 # Create a list of strings: mutants
@@ -101,7 +101,7 @@ for index2, value2 in list(enumerate(mutants, start=1)):
 
 ```
 
-> **zip()**, which takes any number of iterables and returns a zip object that is an iterator of tuples. If you wanted to print the values of a zip object, you can convert it into a list and then print it. Printing just a zip object will not return the values unless you unpack it firs
+> >  * zip(), which takes any number of iterables and returns a zip object that is an iterator of tuples. If you wanted to print the values of a zip object, you can convert it into a list and then print it. Printing just a zip object will not return the values unless you unpack it firs
 
 ```pyhton
 # Create a list of tuples: mutant_data
@@ -132,7 +132,7 @@ print(*z1)
 ```
 
 
-**Using iterators for big data**
+### Using iterators for big data
 
 ```pyhton
 # Extracting information for large amounts of Twitter data
@@ -168,10 +168,10 @@ print(result_counts)
 
 ## 2. List comprehensions and generaton
 
-**List comprehensions**
+### List comprehensions
 
-* Collapse for loops for building lists into a single line
-* Components
+> * Collapse for loops for building lists into a single line
+> * Components
 	* Iterable
 	* Iterator variable (represent members of iterable)
 	* Output expression
@@ -190,7 +190,7 @@ matrix = [[col for col in range(5)] for row in range(5)]
 
 ```
 
-**Advanced comprehensions**
+### Advanced comprehensions
 
 ```python
 # Using conditionals in comprehensions (1)
@@ -234,12 +234,12 @@ print(new_fellowship)
 
 ```
 
-**Introduction to generator expressions**
+### Introduction to generator expressions
 
-* Use ( ) instead of [ ]
-* List comprehension - returns a list
-* Generators - returns a generator object (用於處理大數量range(10*1000000))
-* Both can be iterated over
+> * Use ( ) instead of [ ]
+> * List comprehension - returns a list
+> * Generators - returns a generator object (用於處理大數量range(10*1000000))
+> * Both can be iterated over
 
 ```python
 # Create generator object: result
@@ -264,7 +264,7 @@ for value in lengths:
     
 ```
 
-> **Generator functions** are functions that, like generator expressions, yield a series of values, instead of returning a single value. A generator function is defined as you do a regular function, but whenever it generates a value, it uses the keyword yield instead of return.
+> > * Generator functions are functions that, like generator expressions, yield a series of values, instead of returning a single value. A generator function is defined as you do a regular function, but whenever it generates a value, it uses the keyword yield instead of return.
 
 ```python
 # Create a list of strings
@@ -284,7 +284,7 @@ for value in get_lengths(lannister):
     print(value)
 ```
 
-**Wrapping up comprehensions and generators**
+### Wrapping up comprehensions and generators
 
 ```pyhton
 # Extract the created_at column from df: tweet_time
@@ -299,15 +299,15 @@ print(tweet_clock_time)
 
 ## 3. Bringing it all together!
 
-**Welcome to the case study!**
+### Welcome to the case study!
 
-* Data on world economies for over half a century
-* Indicators
-  * Population
-  * Electricity consumption
-  * CO2 emissions
-  * Literacy rates 識字率
-  * Unemployment
+> * Data on world economies for over half a century
+> * Indicators
+>  * Population
+>  * Electricity consumption
+>  * CO2 emissions
+>  * Literacy rates 識字率
+>  * Unemployment
 
 
 ```python

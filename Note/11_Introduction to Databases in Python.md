@@ -1,6 +1,6 @@
 # Introduction to Databases in Python
 
-## Introduction to Databases in Python
+## 1. Introduction to Databases in Python
 ### Connecting to your Database
 > #### Engines and Connection Strings
 
@@ -103,7 +103,7 @@ print(first_row[0])
 print(first_row['state'])
 ```
 
-## Applying Filtering, Ordering and Grouping to Queries
+## 2. Applying Filtering, Ordering and Grouping to Queries
 ### Filtering and Targeting Data
 > #### Connecting to a PostgreSQL Database
 > > * working with real databases hosted on the cloud via Amazon Web Services (AWS)!
@@ -325,7 +325,7 @@ plt.show()
 ```
 
 
-## Advanced SQLAlchemy Queries
+## 3. Advanced SQLAlchemy Queries
 ### Calculating Values in a Query
 > #### Connecting to a MySQL Database
 > > * There are three components to the connection string in this exercise
@@ -542,7 +542,7 @@ results_proxy.close()
 print(state_count)
 ```
 
-## Creating and Manipulating your database
+## 4. Creating and Manipulating your database
 ### Creating Databases and Tables
 > #### Creating Tables with SQLAlchemy
 
@@ -773,7 +773,7 @@ metadata.drop_all(engine)
 print(census.exists(engine))
 ```
 
-## Putting it all together
+## 5. Putting it all together
 ### Census Case Study
 > #### Setup the Engine and MetaData
 
