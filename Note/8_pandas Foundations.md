@@ -1,15 +1,22 @@
 # pandas Foundations
 
 ## 1. Data ingestion & inspection
+> > * You will learn how to use pandas to import and then inspect a variety of datasets, ranging from population data obtained from The World Bank to monthly stock data obtained via Yahoo! Finance. 
+
 ### Review of pandas DataFrames
 > #### Inspecting your data
-> use the DataFrame methods .head() and .tail() to view the first few and last few rows of a DataFrame
-> 
+> > * use the DataFrame methods .head() and .tail() to view the first few and last few rows of a DataFrame
+
+![330](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/330.png)
+
 > #### DataFrame data types
-> use df.info() to determine information about the total count of non-null entries and infer the total count of 'null' entries, which likely indicates missing data
-> 
+> > * use df.info() to determine information about the total count of non-null entries and infer the total count of 'null' entries, which likely indicates missing data
+
+![331](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/331.png)
+
 > #### NumPy and pandas working together
-> use the DataFrame attribute .values to represent a DataFrame df as a NumPy array.
+> > * use the DataFrame attribute .values to represent a DataFrame df as a NumPy array.
+> > * you'll frequently interact with NumPy arrays, pandas Series, and pandas DataFrames, and you'll leverage a variety of NumPy and pandas methods to perform your desired computations. Understanding how NumPy and pandas work together will prove to be very useful.
 
 ```python
 # Import numpy
@@ -25,13 +32,16 @@ np_vals_log10 = np.log10(np_vals)
 df_log10 = np.log10(df)
 
 # Print original and new data containers
-print(type(np_vals), type(np_vals_log10))
+print(type(np_vals), type(np_vals_log10)) 
+# <class 'numpy.ndarray'> <class 'numpy.ndarray'>
+
 print(type(df), type(df_log10))
+# <class 'pandas.core.frame.DataFrame'> <class 'pandas.core.frame.DataFrame'>
 ```
 
 ### Building DataFrames from scratch
 > #### Zip lists to build a DataFrame
-> use the list of tuples to construct a dictionary, and then use that dictionary to construct a DataFrame. In doing so, you'll make use of the list(), zip(), dict() and pd.DataFrame()
+> > * use the list of tuples to construct a dictionary, and then use that dictionary to construct a DataFrame. In doing so, you'll make use of the list(), zip(), dict() and pd.DataFrame()
 
 ```python
 # Zip the 2 lists together into one list of (key,value) tuples: zipped
@@ -47,9 +57,10 @@ data = dict(zipped)
 df = pd.DataFrame(data)
 print(df)
 ```
+![332](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/332.png)
 
 > #### Labeling your data
-> use the DataFrame attribute df.columns to view and assign new string labels to columns in a pandas DataFrame.
+> > * use the DataFrame attribute df.columns to view and assign new string labels to columns in a pandas DataFrame.
 
 ```python
 # Build a list of labels: list_labels
@@ -60,7 +71,7 @@ df.columns = list_labels
 ```
 
 > #### Building DataFrames with broadcasting
-> can implicitly use 'broadcasting', a feature of NumPy(讓同一行都是同個值)
+> > * can implicitly use 'broadcasting', a feature of NumPy(讓同一行都是同個值)
 
 ```python
 # Make a string with the value 'PA': state
@@ -76,12 +87,13 @@ df = pd.DataFrame(data)
 print(df)
 ```
 
+![333](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/333.png)
+
 ### Importing & exporting data
 > #### Reading a flat file
-> using the pandas function read_csv()
-> > names keyword input parameter, set equal to a list of new column labels. 
-> > 
-> > set header=0 to rename the column labels.
+> > * using the pandas function read_csv()
+> > * names keyword input parameter, set equal to a list of new column labels. 
+> > * set header=0 to rename the column labels.
 
 ```python
 # Read in the file: df1
@@ -98,10 +110,11 @@ print(df1)
 print(df2)
 ```
 
+![334](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/334.png)
+
 > #### Delimiters, headers, and extensions
-> Not all data files are clean and tidy. Pandas provides methods for reading those not-so-perfect data files that you encounter far too often
-> 
-> this file has three aspects that may cause trouble for lesser tools:
+> > * Not all data files are clean and tidy. Pandas provides methods for reading those not-so-perfect data files that you encounter far too often
+> > * this file has three aspects that may cause trouble for lesser tools:
 > > * multiple header lines, 
 > > * comment records (rows) interleaved throughout the data rows, 
 > > * tab delimiters instead of commas.
@@ -128,9 +141,11 @@ df2.to_csv(file_clean, index=False)
 df2.to_excel('file_clean.xlsx', index=False)
 ```
 
+![335](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/335.png)
+
 ### Plotting with pandas
 > #### Plotting series using pandas
-> .plot() method makes calls to matplotlib to construct the plots
+> > * plot() method makes calls to matplotlib to construct the plots
 
 ```python
 # Create a plot with color='red'
@@ -148,8 +163,10 @@ plt.ylabel('Temperature (degrees F)')
 # Display the plot
 plt.show()
 ```
+![336](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/336.png)
+
 > #### Plotting DataFrames
-> use a list of column names passed into the DataFrame df[column_list] to limit plotting to just one column
+> > * use a list of column names passed into the DataFrame df[column_list] to limit plotting to just one column
 
 ```pyhton
 # Plot all columns (default)
@@ -170,7 +187,13 @@ column_list2 = ['Temperature (deg F)','Dew Point (deg F)']
 df[column_list2].plot()
 plt.show()
 ```
+![337](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/337.png)
 
+![338](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/338.png)
+
+![339](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/339.png)
+
+![340](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/340.png)
 
 ## 2. Exploratory data analysis
 ### Visual exploratory data analysis
@@ -192,6 +215,7 @@ plt.ylabel('Price ($US)')
 # Display the plot
 plt.show()
 ```
+![341](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/341.png)
 
 > #### pandas scatter plots
 > > * using the kind='scatter' keyword argument.
@@ -214,11 +238,10 @@ plt.ylabel('Fuel efficiency (mpg)')
 # Display the plot
 plt.show()
 ```
+![342](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/342.png)
 
 > #### pandas box plots
-> plot multiple columns of data in a single figure, making plots that share the same x and y axes, there are cases where two columns cannot be plotted together because their units do not match. 
-> 
-> The .plot() method can generate subplots for each column being plotted. Here, each plot will be scaled independently.
+> > * plot multiple columns of data in a single figure, making plots that share the same x and y axes, there are cases where two columns cannot be plotted together because their units do not match. 
 
 ```python
 # Make a list of the column names to be plotted: cols
@@ -230,6 +253,8 @@ df[cols].plot(kind='box', subplots=True)
 # Display the plot
 plt.show()
 ```
+
+![343](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/343.png)
 
 > #### pandas hist, pdf and cdf
 > .hist() method to not only generate histograms, but also plots of probability density functions (PDFs) and cumulative density functions (CDFs).
@@ -248,19 +273,21 @@ plt.show()
 df.fraction.plot(ax=axes[1], kind='hist', bins=30, normed=True, cumulative=True, range=(0,.3))
 plt.show()
 ```
+![344](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/344.png)
+
+![345](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/345.png)
 
 ### Statistical exploratory data analysis
 > #### Bachelor's degrees awarded to women
->  use the .mean() method with the keyword argument axis='columns'
-> 
->  The DataFrame has been pre-loaded for you as df with the index set to 'Year'
+> > * use the .mean() method with the keyword argument axis='columns'
+> > * The DataFrame has been pre-loaded for you as df with the index set to 'Year'
 
 ```python
 # Print the minimum value of the Engineering column
-print(df['Engineering'].min())
+print(df['Engineering'].min()) # 0.8
 
 # Print the maximum value of the Engineering column
-print(df['Engineering'].max())
+print(df['Engineering'].max()) # 19.0
 
 # Construct the mean percentage per year: mean
 mean = df.mean(axis='columns')
@@ -271,8 +298,10 @@ mean.plot()
 # Display the plot
 plt.show()
 ```
+![346](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/346.png)
+
 > #### Median vs mean
-> investigate the mean, median, and max fare prices paid by passengers on the Titanic and generate a box plot of the fare prices. 
+> > * investigate the mean, median, and max fare prices paid by passengers on the Titanic and generate a box plot of the fare prices. 
 
 ```python
 # Print summary statistics of the fare column with .describe()
@@ -284,12 +313,15 @@ df['fare'].plot(kind='box')
 # Show the plot
 plt.show()
 ```
+![347](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/347.png)
+
+![348](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/348.png)
 
 > #### Quantiles
->  * determine the number of countries reported in 2015. There are a total of 206 unique countries in the entire dataset. 
-> * Then, you will compute the 5th and 95th percentiles of life expectancy over the entire dataset. 
-> * Finally, you will make a box plot of life expectancy every 50 years from 1800 to 2000. 
-> * Notice the large change in the distributions over this period.
+> >  * determine the number of countries reported in 2015. There are a total of 206 unique countries in the entire dataset. 
+> > * Then, you will compute the 5th and 95th percentiles of life expectancy over the entire dataset. 
+> > * Finally, you will make a box plot of life expectancy every 50 years from 1800 to 2000. 
+> >  * Notice the large change in the distributions over this period.
 
 ```python
 # Print the number of countries reported in 2015
@@ -303,9 +335,12 @@ years = ['1800','1850','1900','1950','2000']
 df[years].plot(kind='box')
 plt.show()
 ```
+![349](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/349.png)
+
+![350](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/350.png)
 
 > #### Standard deviation of temperature
-> use the mean and standard deviation to explore differences in temperature distributions in Pittsburgh in 2013
+> > * use the mean and standard deviation to explore differences in temperature distributions in Pittsburgh in 2013
 
 ```python
 # Print the mean of the January and March data
@@ -314,12 +349,16 @@ print(january.mean(), march.mean())
 # Print the standard deviation of the January and March data
 print(january.std(), march.std())
 ```
+![351](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/351.png)
 
 ### Separating populations with Boolean indexing
+> #### Filtering and counting
+> > * As an example, you can extract the rows that contain 'US' as the country of origin using df[df['origin'] == 'US'].
+
 > #### Separate and summarize
->  * compute the means and standard deviations of all columns in the full automobile dataset. 
->  * Next, you'll compute the same quantities for just the US population 
->  * subtract the global values from the US values
+> > * compute the means and standard deviations of all columns in the full automobile dataset. 
+> > * Next, you'll compute the same quantities for just the US population 
+> > * subtract the global values from the US values
 
 ```python
 # Compute the global mean and global standard deviation: global_mean, global_std
@@ -337,9 +376,10 @@ us_std = us.std()
 print(us_mean - global_mean)
 print(us_std - global_std)
 ```
+![352](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/352.png)
 
 > #### Separate and plot
-> use Boolean filtering and generate box plots of the fare prices for each of the three passenger classes
+> > * use Boolean filtering and generate box plots of the fare prices for each of the three passenger classes
 
 ```python
 # Display the box plots on 3 separate rows and 1 column
@@ -358,17 +398,20 @@ titanic.loc[titanic['pclass'] == 3].plot(ax=axes[2], y='fare', kind='box')
 plt.show()
 
 ```
+![353](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/353.png)
 
 ## 3. Time series in pandas
 ### Indexing pandas time series
 > #### Reading and slicing times
->  we have read in the same data file using three different approaches:
+> we have read in the same data file using three different approaches:
 >> * df1 = pd.read_csv(filename)
 >> * df2 = pd.read_csv(filename, parse_dates=['Date'])
 >> * df3 = pd.read_csv(filename, index_col='Date', parse_dates=True)
->
+
+![354](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/354.png)
+
 > #### Creating and using a DatetimeIndex
->  if passed the list of strings ['2015-01-01 091234','2015-01-01 091234'] and a format specification variable, such as format='%Y-%m-%d %H%M%S, pandas will parse the string into the proper datetime elements and build the datetime objects.
+> > * if passed the list of strings ['2015-01-01 091234','2015-01-01 091234'] and a format specification variable, such as format='%Y-%m-%d %H%M%S, pandas will parse the string into the proper datetime elements and build the datetime objects.
 
 ```python
 # Prepare a format string: time_format
@@ -380,7 +423,9 @@ my_datetimes = pd.to_datetime(date_list,format=time_format)
 # Construct a pandas Series using temperature_list and my_datetimes: time_series
 time_series = pd.Series(temperature_list, index=my_datetimes)
 ```
+
 > #### Partial string indexing and slicing
+> > * Pandas time series support "partial string" indexing. What this means is that even when passed only a portion of the datetime, such as the date but not the time,
 
 ```python
 # Extract the hour from 9pm to 10pm on '2010-10-11': ts1
@@ -392,11 +437,12 @@ ts2 = ts0.loc['2010-07-04']
 # Extract data from '2010-12-15' to '2010-12-31': ts3
 ts3 = ts0.loc['2010-12-15' : '2010-12-31']
 ```
+
 > #### Reindexing the Index
-> * Reindexing is useful in preparation for adding or otherwise combining two time series data sets. 
-> * To reindex the data, we provide a new index and ask pandas to try and match the old data to the new index. 
-> * If data is unavailable for one of the new index dates or times, you must tell pandas how to fill it in. 
-> * Otherwise, pandas will fill with NaN by default.
+> > * Reindexing is useful in preparation for adding or otherwise combining two time series data sets. 
+> > * To reindex the data, we provide a new index and ask pandas to try and match the old data to the new index. 
+> > * If data is unavailable for one of the new index dates or times, you must tell pandas how to fill it in. 
+> > * Otherwise, pandas will fill with NaN by default.
 
 ```python
 # Reindex without fill method: ts3
@@ -417,8 +463,8 @@ sum14 = ts1 + ts4
 
 ### Resampling pandas time series
 > #### Resampling and frequency
-> * When downsampling or upsampling, the syntax is similar, but the methods called are different. Both use the concept of 'method chaining' - df.method1().method2().method3()
-> * One approach, for instance, could be to take the mean, as in df.resample('D').mean().
+> > * When downsampling or upsampling, the syntax is similar, but the methods called are different. Both use the concept of 'method chaining' - df.method1().method2().method3()
+> > * One approach, for instance, could be to take the mean, as in df.resample('D').mean().
 
 ```python
 # Downsample to 6 hour data and aggregate by mean: df1
@@ -427,9 +473,12 @@ df1 = df['Temperature'].resample('6h').mean()
 # Downsample to daily data and count the number of data points: df2
 df2 = df['Temperature'].resample('D').count()
 ```
+![355](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/355.png)
+
+![356](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/356.png)
 
 > #### Separating and resampling
->  you can resample in different ways on different subsets of your data
+> > * you can resample in different ways on different subsets of your data
 
 ```python
 # Extract temperature data for August: august
@@ -445,9 +494,13 @@ february = df.loc['February 2010', 'Temperature']
 february_lows = february.resample('D').min()
 ```
 
+![357](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/357.png)
+
+![358](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/358.png)
+
 > #### Rolling mean and frequency
-> *  Rolling means (or moving averages) are generally used to smooth out short-term fluctuations in time series data and highlight long-term trends.
-> * use the .rolling() method, you must always use method chaining, first calling .rolling() and then chaining an aggregation method after it. For example, with a Series hourly_data, hourly_data.rolling(window=24).mean()
+> > *  Rolling means (or moving averages) are generally used to smooth out short-term fluctuations in time series data and highlight long-term trends.
+> > * use the .rolling() method, you must always use method chaining, first calling .rolling() and then chaining an aggregation method after it. For example, with a Series hourly_data, hourly_data.rolling(window=24).mean()
 
 ```python
 # Extract data from 2010-Aug-01 to 2010-Aug-15: unsmoothed
@@ -464,6 +517,24 @@ august.plot()
 plt.show()
 ```
 
+![359](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/359.png)
+
+> #### Resample and roll with it
+
+```python
+# Extract the August 2010 data: august
+august = df['Temperature']['August 2010']
+
+# Resample to daily data, aggregating by max: daily_highs
+daily_highs = august.resample('D').max()
+
+# Use a rolling 7-day window with method chaining to smooth the daily high temperatures in August
+daily_highs_smoothed = daily_highs.rolling(window=7).mean()
+print(daily_highs_smoothed)
+
+```
+![360](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/360.png)
+
 ### Manipulating pandas time series
 > #### Method chaining and filtering
 
@@ -479,8 +550,8 @@ daily_departures = dallas.resample('D').sum()
 
 # Generate the summary statistics for daily Dallas departures: stats
 stats = daily_departures.describe()
-
 ```
+
 
 > #### Missing values and interpolation
 > The problem is that one of the data sets is missing data at some of the times. 
@@ -497,6 +568,9 @@ differences = np.abs(ts1- ts2_interp)
 # Generate and print summary statistics of the differences
 print(differences.describe())
 ```
+
+![361](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/361.png)
+
 > #### Time zones and conversion
 
 ```python
@@ -519,7 +593,7 @@ times_tz_pacific = times_tz_central.dt.tz_convert('US/Pacific')
 ### Visualizing pandas time series
 
 > #### Plotting time series, datetime indexing
-> Pandas handles datetimes not only in your data, but also in your plotting.
+>> *  Pandas handles datetimes not only in your data, but also in your plotting.
 
 ```python
 # Plot the raw data before setting the datetime index
@@ -536,9 +610,12 @@ df.set_index('Date', inplace=True)
 df.plot()
 plt.show()
 ```
+![362](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/362.png)
+
+![363](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/363.png)
 
 > #### Plotting date ranges, partial indexing
-> one of the most convenient is partial string indexing and slicing
+> > * one of the most convenient is partial string indexing and slicing
 
 ```python
 # Plot the summer data
@@ -551,11 +628,17 @@ df.Temperature['2010-06-10':'2010-06-17'].plot()
 plt.show()
 plt.clf()
 ```
+![364](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/364.png)
 
+![365](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/365.png)
 
 ## 4. Case Study - Sunlight in Austin
 ### Reading and cleaning the data
 > #### Reading in a data file
+> > * In this exercise, there are several problems to overcome in reading the file. 
+> > * First, there is no header, 
+> > * and thus the columns don't have labels.
+> > * There is also no obvious index column, since none of the data columns contain a full date or time.
 
 ```python
 # Import pandas
@@ -574,7 +657,13 @@ df_headers = pd.read_csv('data.csv', header=None)
 print(df_headers.head())
 
 ```
+![366](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/366.png)
+
 > #### Re-assigning column names
+> > * In this exercise, you will begin this cleaning process by re-assigning column names and dropping unnecessary columns.
+> > * pandas has been imported in the workspace as pd, and the file NOAA_QCLCD_2011_hourly_13904.txt has been parsed and loaded into a DataFrame df.
+> > * The comma separated string of column names, column_labels, 
+> > * list of columns to drop, list_to_drop, have also been loaded for you.
 
 ```python
 # Split on the comma to create a list: column_labels_list
@@ -589,8 +678,12 @@ df_dropped = df.drop(list_to_drop, axis='columns')
 # Print the output of df_dropped.head()
 print(df_dropped.head())
 ```
+![367](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/367.png)
+
+![368](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/368.png)
+
 > #### Cleaning and tidying datetime data
-> to clean up the date and Time columns and combine them into a datetime collection to be used as the Index
+> > * Your job is to clean up the date and Time columns and combine them into a datetime collection to be used as the Index.
 
 ```python
 # Convert the date column to string: df_dropped['date']
@@ -611,8 +704,12 @@ df_clean = df_dropped.set_index(date_times)
 # Print the output of df_clean.head()
 print(df_clean.head())
 ```
+
+![369](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/369.png)
+
 > #### Cleaning the numeric columns
-> The numeric columns contain missing values labeled as 'M'. In this exercise, your job is to transform these columns such that they contain only numeric values and interpret missing data as NaN
+> > * The numeric columns contain missing values labeled as 'M'. 
+> > * In this exercise, your job is to transform these columns such that they contain only numeric values and interpret missing data as NaN
 
 ```python
 # Print the dry_bulb_faren temperature between 8 AM and 9 AM on June 20, 2011
@@ -628,25 +725,28 @@ print(df_clean.loc['2011-6-20 8:00:00':'2011-6-20 9:00:00', 'dry_bulb_faren'])
 df_clean['wind_speed'] = pd.to_numeric(df_clean['wind_speed'], errors='coerce')
 df_clean['dew_point_faren'] = pd.to_numeric(df_clean['dew_point_faren'], errors='coerce')
 ```
-
+![370](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/370.png)
 
 ### Statistical exploratory data analysis
 > #### Signal min, max, median
 
 ```python
 # Print the median of the dry_bulb_faren column
-print(df_clean['dry_bulb_faren'].median())
+print(df_clean['dry_bulb_faren'].median()) # 72.0
 
 # Print the median of the dry_bulb_faren column for the time range '2011-Apr':'2011-Jun'
-print(df_clean.loc['2011-Apr':'2011-Jun', 'dry_bulb_faren'].median())
+print(df_clean.loc['2011-Apr':'2011-Jun', 'dry_bulb_faren'].median()) # 78.0
 
 # Print the median of the dry_bulb_faren column for the month of January
-print(df_clean.loc['2011-Jan', 'dry_bulb_faren'].median())
+print(df_clean.loc['2011-Jan', 'dry_bulb_faren'].median()) # 48.0
 ```
 
 > #### Signal variance
+> > * how much hotter was every day in 2011 than expected from the 30-year average?
 > > * Your job is to first resample df_clean and df_climate by day and aggregate the mean temperatures. 
 > > * You will then extract the temperature related columns from each - 'dry_bulb_faren' in df_clean, and 'Temperature' in df_climate - as NumPy arrays and compute the difference.
+> > * Notice that the indexes of df_clean and df_climate are not aligned - df_clean has dates in 2011, while df_climate has dates in 2010. This is why you extract the temperature columns as NumPy arrays.
+> > * An alternative approach is to use the pandas .reset_index() method to make sure the Series align properly.
 
 ```python
 # Downsample df_clean by day and aggregate by mean: daily_mean_2011
@@ -663,10 +763,11 @@ daily_temp_climate = daily_climate.reset_index()['Temperature']
 
 # Compute the difference between the two arrays and print the mean difference
 difference = daily_temp_2011 - daily_temp_climate
-print(difference.mean())
+print(difference.mean()) # 1.33018318701
 ```
 
 > #### Sunny or cloudy
+> > * On average, how much hotter is it when the sun is shining? In this exercise, you will compare temperatures on sunny days against temperatures on overcast days.
 > > * use Boolean selection to filter out sunny and overcast days
 > > * then compute the difference of the mean daily maximum temperatures between each type of day.
 
@@ -685,6 +786,9 @@ overcast_daily_max = overcast.resample('D').max()
 print(sunny_daily_max.mean() - overcast_daily_max.mean())
 
 ```
+
+![371](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/371.png)
+
 
 ### Visual exploratory data analysis
 > #### Weekly average temperature and visibility
@@ -705,9 +809,10 @@ print(weekly_mean.corr())
 weekly_mean.plot(subplots=True)
 plt.show()
 ```
+![372](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/372.png)
 
 > #### Daily hours of clear sky
-> > use a box plot to visualize the fraction of days that are sunny.
+> > * use a box plot to visualize the fraction of days that are sunny.
 
 ```python
 # Create a Boolean Series for sunny days: sunny
@@ -726,6 +831,8 @@ sunny_fraction = sunny_hours / total_hours
 sunny_fraction.plot(kind='box')
 plt.show()
 ```
+![373](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/373.png)
+
 
 > #### Heat or humidity
 > > * Dew point is a measure of relative humidity based on pressure and temperature. A dew point above 65 is considered uncomfortable while a temperature above 90 is also considered uncomfortable.
@@ -744,13 +851,16 @@ plt.show()
 
 ```
 
+![374](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/374.png)
+
+
 > #### Probability of high temperatures
 > > * will use a CDF plot to determine the probability of the 2011 daily maximum temperature in August being above the 2010 climate normal value.
 
 ```python
 # Extract the maximum temperature in August 2010 from df_climate: august_max
 august_max = df_climate.loc['2010-08','Temperature'].max()
-print(august_max)
+print(august_max) # 95.3
 
 # Resample the August 2011 temperatures in df_clean by day and aggregate the maximum value: august_2011
 august_2011 = df_clean.loc['2011-08','dry_bulb_faren'].resample('D').max()
@@ -764,3 +874,4 @@ august_2011_high.plot(kind='hist', normed=True, cumulative=True, bins=25)
 # Display the plot
 plt.show()
 ```
+![375](https://github.com/htaiwan/note_data_scientist_with_python/blob/master/Asset/375.png)
